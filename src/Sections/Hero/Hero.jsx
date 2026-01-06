@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import HeroMainText from "./HeroMainText";
-import AboutButton from "../../components/AboutButton";
+import Button from "../../components/Button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -48,7 +48,7 @@ const Hero = () => {
         <div>Raw and singular coffee shops. Sharp and minimalist.</div>
       </div>
       <div className="flex justify-center">
-        <AboutButton />
+        <Button message={"About Us"} />
       </div>
       <div id="video" className="w-[80vw] mx-auto">
         <div

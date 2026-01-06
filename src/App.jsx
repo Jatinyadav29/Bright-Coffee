@@ -19,7 +19,7 @@ const App = () => {
   }, []);
   return (
     <ReactLenis root ref={lenisRef} autoRaf={false}>
-      <div className="min-h-screen w-full">
+      <div className="min-h-screen w-full subpixel-antialiased">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
