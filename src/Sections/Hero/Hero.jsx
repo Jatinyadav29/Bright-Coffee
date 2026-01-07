@@ -37,13 +37,13 @@ const Hero = () => {
   );
   return (
     <div ref={containerRef} id="hero" className="min-h-screen">
-      <div className="font-serif sm:text-[3rem] text-[1rem] text-center sm:my-6 my-3">
+      <div className="font2 font-medium italic sm:text-[3rem] text-[1.5rem] text-center sm:my-6 my-3">
         We are Bright
       </div>
       <div>
         <HeroMainText />
       </div>
-      <div className="font-sans sm:text-[2rem] text-[0.85rem] text-center sm:my-10 my-5 px-6">
+      <div className="font1 sm:text-[2rem] text-[0.85rem] text-center sm:my-10 my-5 px-6">
         <div>A brand of specialty coffee. We also are places.</div>
         <div>Raw and singular coffee shops. Sharp and minimalist.</div>
       </div>
