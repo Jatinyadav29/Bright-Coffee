@@ -28,7 +28,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="sticky top-0 z-50 bg-white flex font-sans items-center justify-between lg:px-20 md:px-14 px-7 py-7 border-b-2 border-black mb-10">
+      <div className="sticky top-0 z-50 bg-[#decca8] flex font-sans items-center justify-between lg:px-20 md:px-14 px-7 py-7 border-b-2 border-black mb-10">
         <div className="flex-1 flex justify-start">
           <button
             onClick={() => {
@@ -56,14 +56,14 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex-1 flex justify-end items-center">
-          <Link to="/cart" className="hover:text-orange-600 transition-colors">
+          <Link to="/cart" className="hover:text-orange-950 transition-colors">
             Cart (0)
           </Link>
         </div>
       </div>
       <div
         ref={menuRef}
-        className={`fixed top-0 left-0 h-screen sm:w-[50vw] w-full bg-black z-50 -translate-x-full ${
+        className={`fixed top-0 left-0 h-screen sm:w-[40vw] w-full bg-[#decca8] border-2 z-50 -translate-x-full ${
           menuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
@@ -71,12 +71,12 @@ const Navbar = () => {
           onClick={() => {
             setMenuOpen(false);
           }}
-          className="p-5 tracking-wide text-white"
+          className="p-5 tracking-wide"
         >
           <FontAwesomeIcon className="pr-3" icon="fa-solid fa-xmark" />
           Menu
         </button>
-        <ul className="flex flex-col gap-10 text-4xl px-5 py-10 text-white">
+        <ul className="flex flex-col gap-10 text-4xl px-5 py-10">
           <NavItem to="/about" label="About" />
           <NavItem to="/shop" label="Shop" />
           <NavItem to="/stores" label="Stores" />

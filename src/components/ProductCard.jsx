@@ -2,13 +2,16 @@ import Button from "./Button";
 
 const ProductCard = () => {
   return (
-    <div className="sm:my-4">
+    <div className="sm:my-4 cursor-pointer">
       <div className="w-full h-[60vh]">
         <img
           className="object-cover w-full h-full"
           src="../Images/coffee1.jpg"
           alt=""
         />
+      </div>
+      <div className="h-10 bg-[#decca8] text-black hover:text-[#decca8] hover:bg-black transition-colors duration-500 ease-in-out flex justify-center items-center">
+        Buy Now
       </div>
       <div className="mt-4">
         <div className="my-1">
@@ -17,11 +20,8 @@ const ProductCard = () => {
           </h1>
         </div>
         <p>Tobacco, cocoa, pepper, citrus, cane sugar</p>
-        <div className="flex justify-between gap-3 text-[1.5rem] cursor-pointer mt-5">
-          <p className="py-2 sm:px-12 sm:py-4 px-8 md:text-[1rem] text-[0.75rem] bg-black text-white">
-            ₹1800
-          </p>
-          <Button message={"Buy"} />
+        <div className="relative inline-block mt-5">
+          <p className="text-white whitespace-nowrap">Starting from ₹1800</p>
         </div>
       </div>
     </div>
