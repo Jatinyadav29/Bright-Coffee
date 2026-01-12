@@ -1,5 +1,5 @@
 import ProductCard from "../../components/ProductCard";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,9 +9,25 @@ const Product = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const ProductRef = useRef(null);
-  //   const headingRef = useRef(null);
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/products");
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   useGSAP(() => {
+    if (products.length === 0) return;
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ProductRef.current,
@@ -33,7 +49,7 @@ const Product = () => {
       stagger: 0.2,
       ease: "expoScale(0.5,7, none)",
     });
-  });
+  }, [products]);
   return (
     <>
       <div ref={ProductRef} className=" bg-[#272626] text-[#decca8] py-6">
@@ -57,12 +73,16 @@ const Product = () => {
           id="productCards"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:gap-8 gap-4 px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden"
         >
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map((item) => (
+            <ProductCard
+              key={item._id}
+              title={item.name}
+              price={item.price}
+              image={item.image}
+              imageHover={item.imageHover}
+              description={item.description}
+            />
+          ))}
         </div>
         <div className="flex justify-center my-16">
           <Button2 message={"Shop"} />
